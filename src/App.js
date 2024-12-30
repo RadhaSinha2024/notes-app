@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import NotesApp from "./components/NotesApp";
+import NotesApp2 from "./components/NotesApp2";
+
+// import DataTable from "./components/DataTable_user"; // Ensure case matches exactly
+// import Login from "./components/Login"; // Import the Login component
+// import ProtectedRoute from "./components/ProtectedRoute";
+// import Navbar from "./components/Navbar";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	//	const location = useLocation(); // Get the current location
+
+	return (
+		<Router>
+			{/* <Navbar /> */}
+			<Routes>
+				<Route
+					path="/"
+					element={
+							<NotesApp />
+					}
+				/>
+						<Route
+					path="/notes"
+					element={
+							<NotesApp2 />
+					}
+				/>
+			</Routes>
+		</Router>
+	);
 }
 
 export default App;
